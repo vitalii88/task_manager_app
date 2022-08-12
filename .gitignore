@@ -1,5 +1,5 @@
 .idea
-/node_module/
-/server/node_module/
+/node_modules/
+/server/node_modules/
 .env
 .DS_Store
