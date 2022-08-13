@@ -4,7 +4,6 @@ import connectDB from './db/connect.js';
 import cors from 'cors';
 import tasksRoute from './routes/tasks.js';
 
-// const connectString = 'mongodb+srv://vitalii_b88:s53cCgvJ@cluster0.pnvv4.mongodb.net/task_manager?retryWrites=true&w=majority'
 dotenv.config();
 const app = express();
 
