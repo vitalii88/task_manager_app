@@ -4,6 +4,7 @@ import connectDB from './db/connect.js';
 import cors from 'cors';
 import tasksRoute from './routes/tasks.js';
 import notFound from './middelware/notFound.js';
+import errorHandler from './middelware/errorHandler.js';
 
 dotenv.config();
 const app = express();
@@ -15,8 +16,10 @@ app.use(express.static('./public'));
 
 // routes
 app.use('/api/v1/tasks', tasksRoute);
-// this middleware (route) need stay after all other routes
+
+// this middlewares need stay after all other routes
 app.use(notFound);
+app.use(errorHandler);
 
 connectDB(process.env.MONGO_DB_URL)
   .then(() => {
