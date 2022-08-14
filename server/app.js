@@ -21,10 +21,11 @@ app.use('/api/v1/tasks', tasksRoute);
 app.use(notFound);
 app.use(errorHandler);
 
+const PORT = process.env.PORT || 5001;
 connectDB(process.env.MONGO_DB_URL)
   .then(() => {
-    app.listen(process.env.PORT, (req, resp) => {
-      console.log(`Server start on port ${process.env.PORT}`);
+    app.listen(PORT, (req, resp) => {
+      console.log(`Server start on port ${PORT}`);
     });
   })
   .catch((error) => {
