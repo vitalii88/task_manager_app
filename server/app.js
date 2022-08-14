@@ -12,10 +12,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.static('./public'));
-app.use(notFound);
 
 // routes
 app.use('/api/v1/tasks', tasksRoute);
+// this middleware (route) need stay after all other routes
+app.use(notFound);
 
 connectDB(process.env.MONGO_DB_URL)
   .then(() => {
